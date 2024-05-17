@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js features/*.feature --require-module ts-node/register --require src/tests/test.setup.ts --require src/tests/step_definitions/testdemo.steps.ts"
+    "test": "cucumber-js features/*.feature --format ./src/allure-reporter.ts --publish-quiet --require-module ts-node/register --require src/tests/test.setup.ts --require src/tests/step_definitions/testdemo.steps.ts"
   },
   "keywords": [],
   "author": "",

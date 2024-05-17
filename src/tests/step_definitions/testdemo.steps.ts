@@ -75,7 +75,14 @@ Then('Verify total prices is more than limit',async function(){
     const totalPrice =  await page.locator('//div[@class="summary_total_label"]').first().innerText();
     const extractedPrice = extractFloatNumbersFromString(totalPrice);
     console.log('extracted product '+extractedPrice);
-    await expect(extractedPrice).toBeGreaterThan(40);
+    try{
+    await expect(extractedPrice).toBeGreaterThan(400);
+    }catch(error)
+    {
+        console.log('Testcase failed')
+        expect(false).toBe(true);//this is to force test case to fail. If we don't add it, then because exception is handeled our test case will proceed to next step
+
+    }
 });
 
 Then('Verify total prices is less than limit',async function(){
